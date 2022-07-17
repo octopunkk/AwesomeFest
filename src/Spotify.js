@@ -22,7 +22,7 @@ export let Spotify = {
   async getRecentArtists() {
     let artists;
     const response = await fetch(
-      "https://api.spotify.com/v1/me/top/artists?limit=50",
+      "https://api.spotify.com/v1/me/top/artists?limit=30",
       {
         headers: { Authorization: `Bearer ${userToken}` },
       }
