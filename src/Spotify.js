@@ -20,14 +20,22 @@ export let Spotify = {
     }
   },
   async getRecentArtists() {
-    let json;
+    let artists;
     const response = await fetch(
       "https://api.spotify.com/v1/me/top/artists?limit=50",
       {
         headers: { Authorization: `Bearer ${userToken}` },
       }
     );
-    json = await response.json();
-    return json.items;
+    const json = await response.json();
+    console.log(json);
+    artists = json.items.map((artist) => {
+      return {
+        name: artist.name,
+        popularity: artist.popularity,
+        followers: artist.followers.total,
+      };
+    });
+    return artists;
   },
 };
