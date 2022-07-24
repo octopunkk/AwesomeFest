@@ -7,7 +7,6 @@ export const Header = (props) => {
         <span className="outlined">AWESOME</span>FEST
         <span className="outlined editor"> EDITOR</span>
       </span>
-      <div className="buttons"></div>
     </div>
   );
 };

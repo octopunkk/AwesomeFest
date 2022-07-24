@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Spotify } from "./Spotify";
 import "./App.css";
 import { Header } from "./Header";
+import { Poster } from "./Poster";
+import { Commands } from "./Commands";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -9,6 +11,7 @@ function App() {
   const [orderByPopularity, setOrderByPopularity] = useState(true);
 
   let orderedArtists = [...artists];
+
   if (orderByPopularity) {
     orderedArtists.sort((a, b) => {
       if (a.followers > b.followers) return 1;
@@ -31,10 +34,15 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <button onClick={toggleOrderBy}>Toggle Order</button>
+      <div className="EditorBody">
+        <Poster />
+        <Commands />
+      </div>
+
+      {/* <button onClick={toggleOrderBy}>Toggle Order</button>
       {orderedArtists.map((artist) => {
         return <div>{artist.name}</div>;
-      })}
+      })} */}
     </div>
   );
 }
