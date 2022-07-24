@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Spotify } from "./Spotify";
 import "./App.css";
+import { Header } from "./Header";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -29,14 +30,10 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <button onClick={toggleOrderBy}>Toggle Order</button>
       {orderedArtists.map((artist) => {
-        return (
-          <div>
-            {artist.name} | popularity : {artist.popularity} | followers :
-            {artist.followers}
-          </div>
-        );
+        return <div>{artist.name}</div>;
       })}
     </div>
   );
